@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from 'react';
 
+import AddCar from './components/AddCar';
 
+import { findAllCars, addCar } from './fetchRequests';
 
 function App() {
 
   const [data, setData] = useState(null);
-
+  
   useEffect(() => {
-    fetch('/api')
-      .then(res => res.json())
-      .then(data => setData(data))
-      // .then(data => console.log(data))
-      .catch((error) => console.error('Error fetching car data:', error));
+
+    // Display data for all cars in the database 
+    findAllCars()
+      .then(({ data, status }) => setData(data))
+
   }, []);
+
 
   return (
     <div className="App">
       <h1>T57 Task 1</h1>
+
+      <AddCar addCar={addCar} />
+
 
       <ul>
         {data && data.map((car) => (
