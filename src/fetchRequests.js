@@ -35,3 +35,4 @@ const createRequest = (method) => (data) => {
 
 export const findAllCars = createRequest("GET");
 export const addCar = createRequest("POST");
+export const updateCar = createRequest("PUT");

@@ -2,23 +2,25 @@ import { useState } from 'react';
 
 import Field from './Field';
 
-const CarForm = ({ onSubmit, action }) => {
+const emptyCarObject = {
+    model: '',
+    make: '',
+    colour: '',
+    regNum: '',
+    owner: '',
+    address: ''
+  };
 
-    const initialState = {
-        model: '',
-        make: '',
-        colour: '',
-        regNum: '',
-        owner: '',
-        address: ''
-    }
+// Provide a default empty car object in case no carData prop is passed in
+const CarForm = ({ carData = emptyCarObject, onSubmit, action }) => {
+
 
     // Empty car object initalised
-    const [car, setCar] = useState({ initialState});
+    const [car, setCar] = useState(carData);
 
     // Clears the form fields 
     function resetForm() {
-        setCar(initialState);
+        setCar(emptyCarObject);
     }
 
     // Declare a function here to handle changes to all the form fields
@@ -53,9 +55,16 @@ const CarForm = ({ onSubmit, action }) => {
 
     };
 
+    // useEffect(() => {
+    //     // Autofill the form fields if a car object is passed in
+    //     if (initialCar) {
+    //         setCar(car);
+    //     }
+    // }, []);
+
     return (
         <form onSubmit={handleSubmit}>
-            <Field label="Model" type="number" name="model" value={car.model} onChange={handleChange} />
+            <Field label="Model" type="number" id={car._id} name="model" value={car.model} onChange={handleChange} />
             <Field label="Make" type="text" name="make" value={car.make} onChange={handleChange} />
             <Field label="Colour" type="text" name="colour" value={car.colour} onChange={handleChange} />
             <Field label="RegNum" type="text" name="regNum" value={car.regNum} onChange={handleChange} />
