@@ -16,4 +16,8 @@ The page will reload when changes to project files are made.
 
 **Recommendation**: [Use React DevTools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) to look 'under the hood'. 
 
+## Component tree 
 
+
+
+https://app.gleek.io/diagrams/yNJAZ4gpyOLN0h-jt1HM_A

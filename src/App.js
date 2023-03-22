@@ -9,13 +9,13 @@ function App() {
 
   // Stateful varaibles
   const [data, setData] = useState(null);
-  const [addCar, setAddCar] = useState(false);
+  const [addCarMode, setAddCarMode] = useState(false);
 
 
   // Event handler functions
   function toggleAddCar() {
     // Using implicit parameter for accurate state handling  
-    setAddCar(prevAddCar => !prevAddCar);
+    setAddCarMode(prevAddCarMode => !prevAddCarMode);
   }
 
 
@@ -32,7 +32,7 @@ function App() {
       <h1>T57 Task 1</h1>
 
       {/* Conditional rendering on Boolean toggle: `addCar` */}
-      {addCar
+      {addCarMode
         ? <>
           <AddCar addCar={addCar} />
           <button onClick={toggleAddCar}>Cancel</button>
