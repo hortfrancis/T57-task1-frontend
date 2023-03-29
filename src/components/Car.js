@@ -5,14 +5,18 @@ import CarDisplay from './CarDisplay';
 
 // Car component handles whether to dislay static data or a form for editing
 
-export default function Car( { carData, updateCar }) {
+export default function Car( { carData, updateCar, deleteCar }) {
 
     const [editMode, setEditMode] = useState(false);
 
-    const toggleEditMode = () => {
+    function toggleEditMode() {
         // Using implicit parameter for accurate state handling  
         setEditMode(prevEditMode => !prevEditMode);
     };
+
+    function handleDelete() {
+        deleteCar(carData);
+    }
 
     return (
         <div className="Car">
@@ -23,7 +27,7 @@ export default function Car( { carData, updateCar }) {
             : <CarDisplay car={carData} /> }
 
             <button onClick={toggleEditMode}>Edit</button>
-
+            <button onClick={handleDelete}>Delete</button>
         </div>
     )
 }

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import AddCar from './components/AddCar';
 import Car from './components/Car';
 
-import { findAllCars, addCar, updateCar } from './fetchRequests';
+import { findAllCars, addCar, updateCar, deleteCar } from './fetchRequests';
 
 function App() {
 
@@ -44,7 +44,7 @@ function App() {
       <ul>
         {data && data.map((car) => (
           <li className="car-li" key={car._id} >
-            <Car carData={car} updateCar={updateCar} />
+            <Car carData={car} updateCar={updateCar} deleteCar={deleteCar}/>
             {/* {car.make} {car.model} - {car.owner} */}
           </li>
         ))}
